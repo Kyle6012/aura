@@ -553,13 +553,14 @@ class ToolRegistry:
                 os.remove(output_path)
             return {"error": f"failed to run {language} code: {str(e)}"}
     
-    def set_assignment(self, description: str, language: str = "python") -> Dict:
+    def set_assignment(self, description: str, language: str = "python", session_id: str = None) -> Dict:
         """
         Set a coding assignment for the student (displayed in workspace).
         
         Args:
             description (str): Assignment description/instructions.
             language (str): Target programming language.
+            session_id (str): The session ID this assignment belongs to.
             
         Returns:
             Dict: Confirmation.

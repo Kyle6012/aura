@@ -80,8 +80,9 @@ class TutorAgent:
             
             print(f"DEBUG: Action '{action_name}' params: {params}")
             
-            # Inject session_id if available
-            if session_id:
+            # Inject session_id if available and supported by the tool
+            supported_tools = ["search_knowledge", "ingest_document", "set_assignment"]
+            if session_id and action_name in supported_tools:
                 params["session_id"] = session_id
                 
             action_plan = {
@@ -139,7 +140,7 @@ class TutorAgent:
 1. REMEMBER CONTEXT - Review the session history below before responding
 2. BE INTERACTIVE - Ask the student questions to guide their learning
 3. TEST UNDERSTANDING - Give quizzes, request code/diagrams to verify learning
-4. USE THE WORKSPACE - Assign coding tasks using set_assignment for practice
+4. USE THE WORKSPACE - Assign coding tasks using set_assignment for practice (do this frequently for coding topics)
 5. BUILD ON PREVIOUS LESSONS - Reference what you've already taught
 
 **AVAILABLE TOOLS:**
@@ -225,20 +226,25 @@ List the tools you need (one per line, from the list above):"""
 **CRITICAL INSTRUCTIONS:**
 1. **REMEMBER THE CONVERSATION** - Look at the chat history above. Reference what you've already discussed!
 2. **BE INTERACTIVE** - Don't just answer. Ask "Do you have any questions?" or "Would you like to practice this?"
-3. **USE THE WORKSPACE** - For coding topics, say something like "I've set up a coding assignment in the workspace below - try implementing X"
+3. **USE THE WORKSPACE SILENTLY** - If you set an assignment, just say "I've updated the workspace for you" or similar, don't be repetitive.
 4. **CHECK UNDERSTANDING** - After explaining, ask the student to explain it back or try a problem
 5. **BE ENCOURAGING** - Recognize their effort and progress
+6. **EVALUATE CODE** - If the student has written code (visible in history or context), evaluate it! Give feedback.
+
+**NEGATIVE CONSTRAINTS (DO NOT DO THIS):**
+- **NEVER** say "I remember you said..." or "I remember we were...". You are a tutor, you just KNOW the context.
+- **NEVER** say "As I mentioned earlier..." repeatedly.
+- **NEVER** announce "I have set up a coding assignment" if you've already done it recently. Just say "Try the new task below".
 
 **RESPONSE STRUCTURE:**
-- Acknowledge their question (reference previous conversation if relevant)
-- Teach the concept clearly with examples
+- Acknowledge their question/code (reference previous conversation if relevant)
+- Teach the concept clearly with examples OR evaluate their code
 - **IMPORTANT**: End with an interactive question like:
   * "Does this make sense? Do you have any questions?"
-  * "Would you like to try implementing this?"
-  * "Can you explain back to me what X does?"
-  * "Let me set up a coding exercise for you to practice this"
+  * "How would you approach X?"
+  * "Try the exercise in the workspace!"
 
-**TONE:** Friendly, patient tutor who remembers what you've discussed.
+**TONE:** Natural, friendly, and concise. Be like a helpful human pair programmer.
 
 Respond as Aura:"""
 
