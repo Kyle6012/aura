@@ -44,14 +44,14 @@ AURA (Agentic Universal Resource for Advanced learning) is a comprehensive AI-po
 │  - Session Management                      │
 │  - Analytics Dashboard                     │
 └──────────┬──────────────────────────┘
-           │
+             │
 ┌──────────▼──────────────────────────┐
 │      Control Plane                         │
 │  - Safety Rules                            │
 │  - Tool Validation                         │
 │  - Execution Monitoring                    │
 └──────────┬──────────────────────────┘
-           │
+             │
 ┌──────────▼──────────────────────────┐
 │      Tool Registry                         │
 │  - run_code(language)                      │
@@ -60,14 +60,14 @@ AURA (Agentic Universal Resource for Advanced learning) is a comprehensive AI-po
 │  - analyze_image()                         │
 │  - web_search()                            │
 └──────────┬──────────────────────────┘
-           │
+             │
 ┌──────────▼──────────────────────────┐
 │   Tutor Agent (LLaMA 3.1)                  │
 │  - Planning                                │
 │  - Synthesis                               │
 │  - Session Context Integration             │
 └──────────┬──────────────────────────┘
-           │
+             │
 ┌──────────▼──────────────────────────┐
 │    PostgreSQL Database                     │
 │  - Sessions & Messages                     │
