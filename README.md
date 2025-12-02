@@ -38,41 +38,41 @@ AURA (Agentic Universal Resource for Advanced learning) is a comprehensive AI-po
 
 ```
 ┌─────────────────────────────────────┐
-│         Streamlit UI                │
-│  - Voice Manager                    │
-│  - Ace Code Editor (6 languages)   │
-│  - Session Management               │
-│  - Analytics Dashboard              │
+│         Streamlit UI                       │
+│  - Voice Manager                           │
+│  - Ace Code Editor (6 languages)           │
+│  - Session Management                      │
+│  - Analytics Dashboard                     │
 └──────────┬──────────────────────────┘
            │
 ┌──────────▼──────────────────────────┐
-│      Control Plane                  │
-│  - Safety Rules                     │
-│  - Tool Validation                  │
-│  - Execution Monitoring             │
+│      Control Plane                         │
+│  - Safety Rules                            │
+│  - Tool Validation                         │
+│  - Execution Monitoring                    │
 └──────────┬──────────────────────────┘
            │
 ┌──────────▼──────────────────────────┐
-│      Tool Registry                  │
-│  - run_code(language)               │
-│  - set_assignment()                 │
-│  - ingest_document()                │
-│  - analyze_image()                  │
-│  - web_search()                     │
+│      Tool Registry                         │
+│  - run_code(language)                      │
+│  - set_assignment()                        │
+│  - ingest_document()                       │
+│  - analyze_image()                         │
+│  - web_search()                            │
 └──────────┬──────────────────────────┘
            │
 ┌──────────▼──────────────────────────┐
-│   Tutor Agent (LLaMA 3.1)           │
-│  - Planning                         │
-│  - Synthesis                        │
-│  - Session Context Integration      │
+│   Tutor Agent (LLaMA 3.1)                  │
+│  - Planning                                │
+│  - Synthesis                               │
+│  - Session Context Integration             │
 └──────────┬──────────────────────────┘
            │
 ┌──────────▼──────────────────────────┐
-│    PostgreSQL Database              │
-│  - Sessions & Messages              │
-│  - User Profiles                    │
-│  - Knowledge Base (Embeddings)      │
+│    PostgreSQL Database                     │
+│  - Sessions & Messages                     │
+│  - User Profiles                           │
+│  - Knowledge Base (Embeddings)             │
 └─────────────────────────────────────┘
 ```
 
