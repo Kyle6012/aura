@@ -1,6 +1,6 @@
 # AURA - Agentic AI Programming Tutor
 
-![AURA Logo](/home/bealthguy/.gemini/antigravity/brain/9d67feaf-87d3-4370-af97-8f3e0f25c65a/aura_logo.webp)
+![AURA Logo](images/logo.jpg)
 
 **Author:** Meshack Bahati Ouma
 

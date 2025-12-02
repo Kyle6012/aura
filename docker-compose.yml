@@ -1,0 +1,35 @@
+services:
+  agentic-system:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - TOGETHER_API_KEY=${TOGETHER_API_KEY}
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=agentic_db
+    volumes:
+      - ./app.py:/app/app.py
+      - ./agentic_system/src:/app/agentic_system/src
+      - ./agentic_system/uploads:/app/uploads
+      - /:/host_fs:ro
+    depends_on:
+      - postgres
+    ports:
+      - "8501:8501"
+    command: streamlit run app.py
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: agentic_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
